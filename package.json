@@ -1,0 +1,23 @@
+{
+  "name": "virtual-api-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "ajv": "^8.17.1",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.20.1",
+    "nodemon": "^3.1.11",
+    "path-to-regexp": "^8.3.0"
+  }
+}
