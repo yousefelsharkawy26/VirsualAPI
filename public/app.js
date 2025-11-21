@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3000';
+const API_BASE = 'https://virsual-api.vercel.app';
 let endpointsData = []; // Store endpoints globally for editing
 
 // ==========================================
