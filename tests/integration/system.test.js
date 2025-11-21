@@ -31,10 +31,10 @@ describe('System API Routes', () => {
     test('POST /_system/create-endpoint should succeed with Admin Key', async () => {
         // Mock the Mongoose .create() function
         Endpoint.create.mockResolvedValue({ _id: 'mock_id_123', path: '/test' });
-
+        const secretAdminKey = process.env.ADMIN_KEY || 'default-dev-key';
         const response = await request(app)
             .post('/_system/create-endpoint')
-            .set('x-admin-key', 'my-secret-admin-key') // Set Header
+            .set('x-admin-key', secretAdminKey) // Set Header
             .send({ 
                 path: '/test', 
                 method: 'GET',
