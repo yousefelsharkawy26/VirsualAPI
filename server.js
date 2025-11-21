@@ -1,13 +1,16 @@
-// server.js (The runner)
+// server.js
+require('dotenv').config(); // <--- 1. LOAD ENV VARS
+
 const mongoose = require('mongoose');
-const app = require('./app'); // Import the logic
+const app = require('./app');
 
-const PORT = 3000;
+// <--- 2. USE ENV VARS
+const PORT = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/virtual-api';
 
-// Connect to DB and then Start Server
-mongoose.connect('mongodb+srv://Vercel-Admin-virsual-api-db:aCsyAtABZquXeEuQ@virsual-api-db.htjvflj.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(MONGO_URI)
     .then(() => {
-        console.log('MongoDB Connected');
-        app.listen(PORT, () => console.log(`Virtual System running on port ${PORT}`));
+        console.log('MongoDB Connected.');
+        app.listen(PORT, () => console.log(`System running on port ${PORT}`));
     })
-    .catch(err => console.error(err));
+    .catch(err => console.error("DB Error:", err));
